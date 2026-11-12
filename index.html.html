@@ -1,0 +1,335 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Biryani Waala</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rozha+One&display=swap">
+<style>
+/* Layout: truck-art garland hanging under a deep green hero, then a menu-board list, review grid and a closing green block. */
+:root {
+  --bg: #F5F6EF;
+  --fg: #13251E;
+  --muted: #4A5E54;
+  --card: #FFFFFF;
+  --line: #CFD5C6;
+  --accent-text: #B3124A;
+  --hero-bg: #0B4F3C;
+  --hero-fg: #F5EFD6;
+  --hero-muted: #BFD3C6;
+  --hero-line: rgba(245, 239, 214, 0.28);
+  --marigold: #F2B01E;
+  --chilli: #D81E5B;
+  --on-marigold: #1B1405;
+  --font-display: 'Rozha One', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1813;
+    --fg: #EFEBD8;
+    --muted: #A3B3A9;
+    --card: #12241D;
+    --line: #27403A;
+    --accent-text: #FF7BA3;
+    --hero-bg: #083C2D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1813;
+  --fg: #EFEBD8;
+  --muted: #A3B3A9;
+  --card: #12241D;
+  --line: #27403A;
+  --accent-text: #FF7BA3;
+  --hero-bg: #083C2D;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+a { color: inherit; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--chilli); outline-offset: 3px; }
+h1, h2, h3, p, dl, dd, ul, figure, blockquote { margin: 0; }
+h1, h2, h3 { text-wrap: balance; font-weight: 400; }
+
+.in {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.block { padding-block: clamp(48px, 8vw, 96px); }
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.hero { background: var(--hero-bg); color: var(--hero-fg); padding-block: 20px clamp(44px, 8vw, 88px); }
+.topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; padding-bottom: clamp(36px, 8vw, 80px); }
+.wordmark { font-family: var(--font-display); font-size: 1.25rem; color: var(--marigold); text-decoration: none; }
+.topbar nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 500; font-size: 0.95rem; }
+.topbar nav a { text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.topbar nav a:hover { border-bottom-color: var(--marigold); }
+.hero .eyebrow { color: var(--marigold); }
+h1 {
+  font-family: var(--font-display);
+  color: var(--marigold);
+  font-size: clamp(3.8rem, 16vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  margin-top: 18px;
+}
+h1 span { display: block; }
+.lead { max-width: 34rem; font-size: clamp(1.1rem, 2.6vw, 1.35rem); margin-top: 26px; color: var(--hero-fg); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 2px solid var(--marigold);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-solid { background: var(--marigold); color: var(--on-marigold); }
+.btn-ghost { color: var(--hero-fg); border-color: var(--hero-line); }
+.btn-ghost:hover { border-color: var(--marigold); }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 22px;
+  margin-top: clamp(36px, 6vw, 60px);
+  padding-top: 24px;
+  border-top: 1px solid var(--hero-line);
+}
+.facts dt { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hero-muted); }
+.facts dd { font-family: var(--font-display); font-size: 1.6rem; line-height: 1.2; margin-top: 4px; }
+
+/* Garland hanging from the hero */
+.garland {
+  height: 24px;
+  background:
+    radial-gradient(circle at 50% 0, var(--chilli) 0 6px, transparent 6.5px) 0 0 / 30px 24px repeat-x,
+    radial-gradient(circle at 50% 0, var(--marigold) 0 12px, transparent 12.5px) 0 0 / 30px 24px repeat-x;
+  background-color: var(--bg);
+}
+
+/* Headline quote */
+.headline-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6.4vw, 4rem);
+  line-height: 1.1;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.headline-quote cite { display: block; margin-top: 22px; font-style: normal; color: var(--muted); font-size: 0.95rem; }
+
+/* Menu board */
+h2 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+.section-note { color: var(--muted); max-width: 36rem; margin-top: 12px; }
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  column-gap: 56px;
+  margin-top: 28px;
+  border-top: 2px solid var(--fg);
+}
+.dish { min-width: 0; padding-block: 20px; border-bottom: 1px dashed var(--line); }
+.dish-head { display: flex; align-items: baseline; gap: 12px; }
+.dish-name { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.2; }
+.leader { flex: 1; min-width: 12px; border-bottom: 2px dotted var(--line); transform: translateY(-5px); }
+.dish-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-text); white-space: nowrap; }
+.dish p { margin-top: 6px; color: var(--muted); max-width: 34rem; }
+.also { margin-top: 22px; color: var(--muted); }
+
+.nihari {
+  margin-top: 36px;
+  background: var(--marigold);
+  color: var(--on-marigold);
+  padding: clamp(22px, 4vw, 36px);
+  display: grid;
+  gap: 8px;
+}
+.nihari .eyebrow { color: var(--on-marigold); }
+.nihari h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.05; }
+.nihari p { max-width: 36rem; }
+
+/* Reviews */
+.reviews { border-top: 1px solid var(--line); }
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.review {
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+.review blockquote { font-size: 1.1rem; line-height: 1.5; }
+.review figcaption { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-text); }
+.review.wide { grid-column: 1 / -1; }
+.review.wide blockquote { font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 2rem); line-height: 1.2; max-width: 30ch; }
+.scores { margin-top: 22px; color: var(--muted); font-size: 0.95rem; max-width: 44rem; }
+
+/* Visit */
+.visit { background: var(--hero-bg); color: var(--hero-fg); }
+.visit h2 { color: var(--marigold); font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 0.95; }
+.visit p { max-width: 34rem; margin-top: 18px; font-size: 1.1rem; }
+.visit .eyebrow { color: var(--marigold); margin-bottom: 14px; }
+footer { padding-block: 22px; background: var(--hero-bg); color: var(--hero-muted); font-size: 0.85rem; border-top: 1px solid var(--hero-line); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
+}
+</style>
+
+<header class="hero">
+  <div class="in">
+    <div class="topbar">
+      <a class="wordmark" href="#top">Biryani Waala</a>
+      <nav aria-label="Sections">
+        <a href="#dishes">Dishes</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+    <p class="eyebrow" id="top">Pakistani kitchen · Tooting, London</p>
+    <h1><span>Biryani</span><span>Waala</span></h1>
+    <p class="lead">Karachi biryani, Bihari beef rolls and slow-cooked haleem. Comfort food at a comfortable price, and a team that makes you feel welcome.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="#dishes">See the dishes</a>
+      <a class="btn btn-ghost" href="#visit">Find us</a>
+    </div>
+    <dl class="facts">
+      <div><dt>Per person</dt><dd>£10–20</dd></div>
+      <div><dt>Special lamb biryani</dt><dd>£7</dd></div>
+      <div><dt>Lunch wait</dt><dd>Up to 10 min</dd></div>
+      <div><dt>Nihari</dt><dd>Weekends</dd></div>
+    </dl>
+  </div>
+</header>
+<div class="garland" aria-hidden="true"></div>
+
+<section class="block headline-quote">
+  <div class="in">
+    <figure>
+      <blockquote><p>The most authentic Pakistani food I have tasted in 5 years.</p></blockquote>
+      <figcaption><cite>Guest review</cite></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block" id="dishes" style="padding-top:0">
+  <div class="in">
+    <h2>What to order</h2>
+    <p class="section-note">Rice, rolls, grill and sweets, as the people eating them describe it.</p>
+    <div class="menu">
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Karachi biryani</h3><span class="leader"></span><span class="dish-tag">Rice</span></div>
+        <p>Richly aromatic, with spice that sits in balance and flavour in every grain. Chicken and lamb.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Special lamb biryani</h3><span class="leader"></span><span class="dish-tag">£7 regular</span></div>
+        <p>A generous portion of tender lamb over well-seasoned rice. Proper comforting food.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Haleem</h3><span class="leader"></span><span class="dish-tag">Slow-cooked</span></div>
+        <p>The dish people travel for when they want the original haleem taste of Pakistan.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Bihari beef roll</h3><span class="leader"></span><span class="dish-tag">Rolls</span></div>
+        <p>Tender, juicy, well-marinated beef Bihari kebab in fresh paratha, with a smoky finish.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Chicken Bihari boti</h3><span class="leader"></span><span class="dish-tag">Grill</span></div>
+        <p>Served with puri paratha.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Fish fry</h3><span class="leader"></span><span class="dish-tag">Starter</span></div>
+        <p>Crisp fried fish with a side of fish sauce.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Chawal and pakora curry</h3><span class="leader"></span><span class="dish-tag">Comfort</span></div>
+        <p>Rice with pakora curry. A guest scored it 9 out of 10.</p>
+      </article>
+      <article class="dish">
+        <div class="dish-head"><h3 class="dish-name">Kheer and zarda</h3><span class="leader"></span><span class="dish-tag">Sweet</span></div>
+        <p>Sweet rice to finish the meal.</p>
+      </article>
+    </div>
+    <p class="also">Guests also order butter naan, fried chicken and lassi.</p>
+
+    <div class="nihari">
+      <p class="eyebrow">Weekends only</p>
+      <h3>Nihari</h3>
+      <p>Nihari is served at weekends. If it is the dish you came for, plan your visit around it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block reviews" id="reviews">
+  <div class="in">
+    <h2>What guests say</h2>
+    <div class="review-grid">
+      <figure class="review wide">
+        <blockquote>Drove 2 hours to visit this place as it was recommended.</blockquote>
+        <figcaption>Guest review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>The Karachi biryani was exceptional, richly aromatic and perfectly spiced.</blockquote>
+        <figcaption>On the biryani</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>Mishal and each team member we met was so welcoming and friendly.</blockquote>
+        <figcaption>On the team</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>Comfort food at a very comfortable price point.</blockquote>
+        <figcaption>On the value</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>For £7 it is hard to argue with the value. One of the better biryanis I have had in Tooting.</blockquote>
+        <figcaption>On the lamb biryani</figcaption>
+      </figure>
+    </div>
+    <p class="scores">One guest rated food, service and atmosphere 5 out of 5. Another gave the chawal and pakora curry 9 out of 10 and the biryani 8 out of 10.</p>
+  </div>
+</section>
+
+<section class="block visit" id="visit">
+  <div class="in">
+    <p class="eyebrow">Dine in</p>
+    <h2>Come hungry.</h2>
+    <p>Biryani Waala is in Tooting, London. Open the map for directions, and remember that nihari is served at weekends.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Biryani+Waala+Tooting+London" target="_blank" rel="noopener">Open in Maps</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="in">Biryani Waala · Pakistani food in Tooting, London</div>
+</footer>
+
+</body></html>
